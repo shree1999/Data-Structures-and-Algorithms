@@ -15,7 +15,7 @@ return true or false  */
 #include <cstring>
 #include <bits/stdc++.h>
 using namespace std;
-/* defining a function for naive approach -> O(n^2) time complexity
+/* defining a function for naive approach -> O(sizeA * sizeB) time complexity
                                           -> O(1) space complexity
 */
 bool findingMatch(char *arrA, char *arrB, int sizeA, int sizeB) {
@@ -35,7 +35,7 @@ bool findingMatch(char *arrA, char *arrB, int sizeA, int sizeB) {
     return false;
 }
 
-/* O(n) time complexity and  and O(n) space complexity */
+/* O(sizeA + sizeB) time complexity and  and O(sizeA) space complexity */
 bool betterFindingMatch(char *arrA, char *arrB, int sizeA, int sizeB) {
     map<int, int>lookUp;
     for(int i = 0; i < sizeA; i++) {
