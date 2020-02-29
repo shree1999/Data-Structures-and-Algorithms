@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1582964483 source:d:\ztmds-algo\section-4\interviewquestion-2\googlesolution\main.cpp
+	<iostream>
+	<cstdlib>
+	<bits/stdc++.h>
+
