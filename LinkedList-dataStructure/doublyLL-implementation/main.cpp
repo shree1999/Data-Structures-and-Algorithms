@@ -120,13 +120,29 @@ public:
         }
     }
 
+    void reverseList() {
+        Node *temp = NULL;
+        Node *current = head;
+
+        while (current != NULL) { // swapping all next and prev pointers of nodes.
+            temp = current->prev;
+            current->prev = current->next;
+            current->next = temp;
+            current = current->prev;
+        }
+
+        if(temp != NULL ) {  // checking for edge cases.
+            head = temp->prev;
+        }
+    }
+
     void display() {  // function to print the list that is being generated.
         if(head == NULL) {
             cout<<"Please Create a Doubly Linked List"<<endl;
             return;
         }
         Node *temp = head;
-        for(int i = 0; i < totalNodes; i++) {
+        while(temp != NULL) {
             cout<<temp->data<<"---->";
             temp = temp->next;
         }
@@ -151,6 +167,9 @@ int main() {
     d.display();
 
     d.removeElement(4);
+    d.display();
+
+    d.reverseList();
     d.display();
 
     return 0;
