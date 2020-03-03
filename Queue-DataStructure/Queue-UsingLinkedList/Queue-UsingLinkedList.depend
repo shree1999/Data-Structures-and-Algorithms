@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1583225986 source:d:\ztmds-algo\queue-datastructure\queue-usinglinkedlist\main.cpp
+	<iostream>
+	<cstdio>
+
