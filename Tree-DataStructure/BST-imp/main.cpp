@@ -172,8 +172,8 @@ int main() {
     /*    20
          /  \
         10   30
-            /  \
-           25  40   tree structure */
+       /    /  \
+      1    25  40   tree structure */
 
     b.insertNode(20);
     b.insertNode(10);
