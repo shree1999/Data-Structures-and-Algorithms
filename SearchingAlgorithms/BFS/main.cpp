@@ -1,6 +1,6 @@
 /* Breadth first search(BFS) a graph traversing technique to get all nodes
    it uses queue data structure.
-   This program assumes that the node values is same as that of
+   This program assumes that the node values is same as that of index of an array.
 */
 
 #include <bits/stdc++.h>
