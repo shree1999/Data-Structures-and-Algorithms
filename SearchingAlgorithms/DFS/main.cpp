@@ -25,7 +25,7 @@ void DFS_(int graph[4][4], int s)
 
 int main()
 {
-	int graph[4][4] = {{0, 1, 1, 0}, {0, 0, 1, 0}, {1, 0, 0, 1}, {0, 0, 0, 1}};
+	int graph[4][4] = {{0, 1, 1, 0}, {0, 0, 1, 0}, {1, 0, 0, 1}, {0, 0, 0, 1}}; //adjacency matrix representation of graph
 	cout << "DFS: ";
 	DFS_(graph, 2);
 	cout << endl;
