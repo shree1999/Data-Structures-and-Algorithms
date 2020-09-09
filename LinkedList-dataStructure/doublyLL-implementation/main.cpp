@@ -111,9 +111,15 @@ public:
             for(int i = 0; i < pos; i++) {
                 temp = temp->next;
             }
-            if(temp != NULL) {
+            if(temp->next != NULL) {
                 temp->next->prev = temp->prev;
                 temp->prev->next = temp->next;
+                free(temp);
+                totalNodes--;
+            }
+            else{
+                temp->prev->next=NULL;
+                tail=tail->next;
                 free(temp);
                 totalNodes--;
             }
@@ -170,6 +176,9 @@ int main() {
     d.display();
 
     d.reverseList();
+    d.display();
+
+    d.removeElement(6);
     d.display();
 
     return 0;
