@@ -11,27 +11,26 @@ int *mergeArray(int *arr1, int *arr2, int size1, int size2) {
     }
     int *arr = new int[size1 + size2];
     int index1 = 0, index2 = 0, index = 0;
-    while(index1 < size1  || index2 < size2) {
+    while(index1 < size1  && index2 < size2) {
         if(arr1[index1] <= arr2[index2]) {
             arr[index] = arr1[index1];
-            index++;
             index1++;
         }
-        if(arr1[index1] > arr2[index2]) {
+        else {
             arr[index] = arr2[index2];
-            index++;
             index2++;
         }
+        index++;
     }
-    if(index1 == size1 - 1) {
-        for(int i = index; i <= size2; i++) {
-            arr[i] = arr2[i];
-        }
+    for( int inx = index1; inx < size1; ++inx)
+    {
+      arr[index] = arr1[inx];
+      ++index;
     }
-    if(index2 == size2 - 1) {
-        for(int i = index; i <= size1; i++) {
-            arr[i] = arr1[i];
-        }
+    for( int inx = index2; inx < size2; ++inx)
+    {
+      arr[index] = arr2[inx];
+      ++index;
     }
     return arr;
 }
