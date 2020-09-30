@@ -8,12 +8,10 @@ int main() {
 
     cout<<"Entered String is: "<<str<<endl;
 
-    // reverse(str.begin(), str.end()); method - 1 using built-in library
+    reverse(str.begin(), str.end()); 
 
-    cout<<"Reversed String is: "<<endl;
-    for(int i = str.length() - 1; i >= 0; i--) {
-        cout<<str[i];
-    }
+    cout << "Reversed String is: "<<endl;
+    cout << str;
 
     return 0;
 }
