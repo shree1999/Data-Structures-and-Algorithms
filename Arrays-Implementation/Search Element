@@ -31,6 +31,7 @@ int main()
         {
                 cout<<"\n Element "<<num<<" Found At Position "<<pos;
         }
+        
         return 0;
 }
 
