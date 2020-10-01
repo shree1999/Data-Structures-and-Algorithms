@@ -1,10 +1,10 @@
-                                                               // Code for quick sort
+                                                                           // Code for quick sort
 #include <iostream>
 #include <stdlib.h>
 
 using namespace std;
 
-void swap(int *a, int *b)                                    // Function for swapping the array elements                          
+void swap(int *a, int *b)                                               // Function for swapping the array elements                          
         {
             int temp;
             temp = *a;
@@ -12,7 +12,7 @@ void swap(int *a, int *b)                                    // Function for swa
             *b = temp;
         }
 
-int Partition(int a[], int lowerIndex, int upperIndex)           // Partitioning of the array
+int Partition(int a[], int lowerIndex, int upperIndex)                   // Partitioning of the array
         {
             int pivot, index, i;
             index = lowerIndex;
