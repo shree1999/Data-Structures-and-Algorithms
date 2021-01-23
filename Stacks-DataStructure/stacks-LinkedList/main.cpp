@@ -10,71 +10,77 @@ The functions that will be used for implementing stack are:
 
 using namespace std;
 // creating a class node that defines it.
-class Node {
+class Node
+{
 public:
     int data;
     Node *next;
+    Node(int data)
+    {
+        this->data = data;
+        this->next = next;
+    }
 };
 
-class Stack {
+class Stack
+{
     Node *top; // declaring two pointers head and tail of class Node.
-    int totalNodes;
 public:
-    Stack() {
+    Stack()
+    {
         top = NULL;
-        totalNodes = 0;
     }
 
-    void push(int data) {
-        Node *newNode = new Node;
-        newNode->data = data;
-        newNode->next = NULL;
-        if(top == NULL) {
-            totalNodes++;
+    void push(int data)
+    {
+        Node *newNode = new Node(data);
+        if (top == NULL)
+        {
             top = newNode;
             return;
         }
         newNode->next = top;
         top = newNode;
-        totalNodes++;
     }
 
-    void pop() {
-        if(top == NULL) {
-            cout<<"Stack Under-Flow or Empty"<<endl;
+    void pop()
+    {
+        if (top == NULL)
+        {
+            cout << "Stack Under-Flow or Empty" << endl;
             return;
         }
         Node *curr = top;
-        cout<<top->data<<endl;
+        cout << top->data << endl;
         top = top->next;
         free(curr);
-        totalNodes--;
     }
-    void display() {
-        if(top == NULL) {
-            cout<<"Empty Stack Please push elements"<<endl;
+    void display()
+    {
+        if (top == NULL)
+        {
+            cout << "Empty Stack Please push elements" << endl;
             return;
         }
         Node *temp = top;
-        for(int i = 0; i < totalNodes && temp!=NULL; i++) {
-            cout<<temp->data<<"  ";
+        while (temp != NULL)
+        {
+            cout << temp->data << "  ";
             temp = temp->next;
         }
-        cout<<endl;
+        cout << endl;
     }
 };
 
-int main() {
+int main()
+{
     Stack s;
     s.push(10);
     s.push(20);
     s.push(30);
 
-    s.pop();  //removes 30
+    s.pop(); //removes 30
     s.display();
 
     return 0;
 }
-
-
-
