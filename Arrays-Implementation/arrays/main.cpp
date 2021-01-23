@@ -73,7 +73,7 @@ public:
 
     void pop(int index) {
         // deleting element from particular index
-        if(index < totalNumbers) {
+        if(index > -1 && index < totalNumbers) {
             totalNumbers--;
             for(int j = index; j < totalNumbers; j++) {
                 arr[j] = arr[j + 1];
@@ -83,7 +83,7 @@ public:
 
     int get(int index) {
         // get the data of the particular index.
-        if(index < capacity) {
+        if(index > -1 && index < capacity) {
             return arr[index];
         }
     }
