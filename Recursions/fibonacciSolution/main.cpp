@@ -6,47 +6,47 @@ A Fibonacci series is given by of the form of
 
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 using namespace std;
-
+vector<int> memo; // used to store pre-calculated value of fibo numbers (dec time-complexity from 2^n to O(n))
 // function to generate Fibonacci series using recursion
-int fibonacci(int num) {
-    if(num == 0) {
+int fibonacci(int num)
+{
+    if (num == 0)
         return 0;
-    }
-    else if(num == 1) {
+    if (num == 1)
         return 1;
-    }
-    else {
-        return(fibonacci(num - 1) + fibonacci(num - 2));
-    }
+    if (memo[num] != 0)
+        return memo[num];
+    memo[num] = fibonacci(num - 1) + fibonacci(num - 2);
+    return memo[num];
 }
 
-int main() {
-    int num = 10, i; // num denotes the maximum limit of the series.
-                        // i denotes the index at which we are calling Fibonacci function
+int main()
+{
+    int num = 10;     // num denotes the maximum limit of the series.
+                      // i denotes the index at which we are calling Fibonacci function
+    memo.resize(num); // to make memo of size num
+    for (int i = 0; i < num; i++)
+    {
+        cout << fibonacci(i) << "  ";
+    }
+    cout << endl;
 
-    for(i = 0; i < num; i++) {
-        cout<<fibonacci(i)<<"  ";
-    }
-    cout<<endl;
+    cout << "Now for Iterative method" << endl;
+    int fib[num];
+    fib[0] = 0;
+    if (num > 1)
+        fib[1] = 1;
 
-    cout<<"Now for Iterative method"<<endl;
-    int a = 0, b = 1, sum = 0;
-    if(num == 0) {
-        cout<<a<<endl;
+    for (int i = 2; i < num; i++)
+    {
+        fib[i] = fib[i - 1] + fib[i - 2];
     }
-    else if(num == 1) {
-        cout<<a<<", "<<b<<endl;
+    for (int i = 0; i < num; i++)
+    {
+        cout << fib[i] << "  ";
     }
-    else {
-        for(int i = 0; i < num; i++) {
-            cout<<sum<<", ";
-            sum = a + b;
-            a = b;
-            b = sum;
-        }
-    }
+    cout << endl;
     return 0;
 }
-
-
