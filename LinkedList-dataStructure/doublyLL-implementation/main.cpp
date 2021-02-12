@@ -80,7 +80,7 @@ public:
         else {
             Node *newNode = new Node;
             newNode->data = data;
-            newNode->next = newNode->prev = NULL;
+            newNode->prev = NULL;
 
             Node *temp = tail;
             for(int i = totalNodes - 1; i >= pos; i--) {
