@@ -4,10 +4,10 @@ using namespace std;
 // we are creating function pointer that points to the array that we will be returned.
 int *mergeArray(int *arr1, int *arr2, int size1, int size2) {
     if(size1 == 0) {
-        return arr1;
+        return arr2;
     }
     if(size2 == 0) {
-        return arr2;
+        return arr1;
     }
     int *arr = new int[size1 + size2];
     int index1 = 0, index2 = 0, index = 0;
