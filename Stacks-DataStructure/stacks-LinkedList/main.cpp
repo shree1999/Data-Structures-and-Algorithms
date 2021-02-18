@@ -18,7 +18,7 @@ public:
     Node(int data)
     {
         this->data = data;
-        this->next = next;
+        this->next = NULL; // it should be initialized as NULL, unless it occurs SIGSEGV error.
     }
 };
 

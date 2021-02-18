@@ -108,8 +108,8 @@ public:
                 totalNodes--;
                 return;
             }
-            for(int i = 0; i < pos; i++) {
-                temp = temp->next;
+            for(int i = 1; i < pos; i++) { // Since the pos(position) starts from 1, it should start from i = 1
+                temp = temp->next; 
             }
             if(temp->next != NULL) {
                 temp->next->prev = temp->prev;
@@ -119,7 +119,7 @@ public:
             }
             else{
                 temp->prev->next=NULL;
-                tail=tail->next;
+                tail=tail->prev; // should assign new tail as the previous node of the original tail
                 free(temp);
                 totalNodes--;
             }
