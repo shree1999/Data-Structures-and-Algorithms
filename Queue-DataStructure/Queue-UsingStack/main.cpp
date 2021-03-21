@@ -1,58 +1,71 @@
-/* Creating Queue using Two Stacks
-Here let us see how it works
-1. s1 stores all the data that has been enqueue
-2. when its time to remove then copy all the elements from the top of s1 and paste it in
-   s2 so that s2 will have first inserted element at the top. After this we can simply remove
-   top element from s2.
-
-*/
+// queue using stack
 
 #include <bits/stdc++.h>
 using namespace std;
 
-class Queue{
-    stack<int>s1, s2; // using stack data structure from STL library
+class Queue
+{
+    // using s1 to push the data into stack and using s2 to reverse the data from s1 and store it in s2 to appear it like queue
+    stack<int> s1, s2; // using stack data structure from STL library
 public:
+    Queue() {} // initialized queue
 
-    Queue() {}
-
-    void enQueue(int data) {
+    void enQueue(int data)
+    {
         s1.push(data);
     }
 
-    void deQueue() {
-        if(s1.empty() && s2.empty()) { // check for empty condition
-            cout<<"Please Insert Data"<<endl;
+    void deQueue()
+    {
+        if (s1.empty() && s2.empty())
+        {
+            cout << "Please Insert Data" << endl;
             return;
         }
-        if(s2.empty()) { // checking for stack 2 is empty or not
-            while(!s1.empty()) {
-                s2.push(s1.top());  // in this we copy s1 to s2
-                s1.pop(); // pop element from s1
+
+        if (s2.empty())
+        {
+            while (!s1.empty())
+            {
+                // we will push top element from s1 to s2 until s1 becomes empty
+                s2.push(s1.top());
+                // at each push in s2 we will pop top from s1
+                s1.pop();
             }
         }
-        cout<<s2.top()<<endl;  // if s2 is not empty then simply remove top of s2.
+        cout << s2.top() << endl; // if s2 is not empty then simply remove top of s2.
         s2.pop();
     }
 
-    void peek() {
-        if(s1.empty()) {
-            cout<<"Please Insert Element"<<endl;
-            return;
+    void peek()
+    {
+        if (s2.empty())
+        {
+            while (!s1.empty())
+            {
+                // we will push top element from s1 to s2 until s1 becomes empty
+                s2.push(s1.top());
+                // at each push in s2 we will pop top from s1
+                s1.pop();
+            }
         }
-        cout<<"Top Element: "<<s1.top()<<endl;
+        cout << "Top Element: " << s2.top() << endl;
     }
-
 };
 
-int main() {
+int main()
+{
     Queue q;
-
+    q.enQueue(10);
     q.enQueue(20);
     q.enQueue(30);
     q.enQueue(40);
 
+    q.peek();
     q.deQueue();
+    q.peek();
+    q.deQueue();
+    q.peek();
 
     return 0;
 }
