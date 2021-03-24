@@ -49,6 +49,11 @@ public:
     // function used to peek onto the top most element
     int peek()
     {
+        // checking if stack is empty
+        if(top < 0) {
+            cout << "error : stack is empty";
+            return 0;
+        }
         return arr[top];
     }
 
