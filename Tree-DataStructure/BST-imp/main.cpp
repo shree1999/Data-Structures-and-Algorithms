@@ -114,7 +114,7 @@ public:
                     }
                     else if(temp->right != NULL&&data<root->data)
                     {
-                      parent->right = temp->right;
+                      parent->left = temp->right;
                     }
                     else{
                       //checking if temp has no value in the right and data is greater than parent
