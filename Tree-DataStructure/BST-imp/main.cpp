@@ -104,13 +104,22 @@ public:
                 else if (temp->left == NULL || temp->right == NULL)
                 {
                     cout << "We are deleting parent node which have one child" << endl;
-                    if (temp->left != NULL)
+                    if (temp->left != NULL&&data<root->data)
                     {
                         parent->left = temp->left;
                     }
-                    else
+                    else if(temp->right != NULL&&data>root->data)
                     {
                         parent->right = temp->right;
+                    }
+                    else if(temp->right != NULL&&data<root->data)
+                    {
+                      parent->left = temp->right;
+                    }
+                    else{
+                      //checking if temp has no value in the right and data is greater than parent
+                      //then the parent right value is temp's left value
+                      parent->right = temp->left; 
                     }
                     free(temp);
                     return;
