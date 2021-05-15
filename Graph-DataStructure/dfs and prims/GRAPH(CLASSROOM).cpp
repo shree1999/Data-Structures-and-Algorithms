@@ -4,11 +4,11 @@
 #include<stack>
 #include<queue>
 using namespace std;
-
+//visited array to keep track of the elements which we visited
+//declared as global
 int visited[100];
-//for(int i=0;i<100;i++)
-//{visited[i]=-1;
-//}
+
+//each graphnode object will have following properties
 class GraphNode
 {
 	private:
@@ -45,6 +45,9 @@ class ListGraph :public GraphNode
 		
 };
 
+
+//creating and inserting elements in our adjacency list
+
 void ListGraph::create()
 {
 	GraphNode *temp,*newnode;
@@ -67,13 +70,16 @@ void ListGraph::create()
 				else
 				{
 					temp->next=newnode;
-					temp=newnode;//temp=temp->next
+					temp=newnode;
+					//Alternate staement
+					//temp=temp->next
 				}
 			}
 		}
 	}
 }
 
+//displaying elements in our adjacency list
 
 void ListGraph::display()
 {
@@ -81,7 +87,6 @@ void ListGraph::display()
 	GraphNode *temp;
 	for(int i=0;i<n;i++)
 	{cout<<"vertex "<<i<<endl;
-		//cout<<list[i]<<" --> ";
 		temp=list[i];
 		while(temp!=NULL)
 		{
@@ -93,20 +98,23 @@ void ListGraph::display()
 	}
 }
 
+//DFS function using recursion
 void ListGraph::recursiveDFS(int v)
 {GraphNode *temp;
-	visited[v]=1;
-	cout<<v<<" --> ";
-	temp=list[v];
-	while(temp!=NULL)
+	visited[v]=1;       //mark element/node  as visited
+	cout<<v<<" --> ";	//print node
+	temp=list[v];		//assign head pointer as temp
+	while(temp!=NULL)		//traverse throught linked list till it is empty
 	{
-		if(visited[temp->vertex] !=1)
+		if(visited[temp->vertex] !=1)//call recursive function on node if it is not visited
 		{
 			recursiveDFS(temp->vertex);
 		}
 		temp=temp->next;
 	}
 }
+
+//DFS function using Stack
 
 void ListGraph::DFSstack(int v)
 {
@@ -116,32 +124,31 @@ void ListGraph::DFSstack(int v)
 	int w;
 	for(int i=0;i<n;i++)
 	{
-		visit[i]=false;
+		visit[i]=false;		//mark each node as unvissited
 	}
-	visit[v]=true;
+	visit[v]=true;		//mark 1st node visited
 	
 	
 		
 	cout<<v<<"--> ";
-	s.push(v);
-	while(!s.empty())
+	s.push(v);			//push 1 st node on stack
+	while(!s.empty())	
 	{
 	
-	temp=list[v];
-	//if(s.empty())break;
+	temp=list[v];		
 	while(temp!=NULL)
 	{w=temp->vertex;
 		if(visit[w]==false)
 		{
 			visit[w]=true;
-			cout<<w<<" --> ";
+			cout<<w<<" --> ";	//pick a neighbour of vertex and add in stack
 			s.push(w);
 			v=w;
 		}
-		temp=temp->next;
+		temp=temp->next;	
 	}
-	v=s.top();
-	s.pop();
+	v=s.top();	//pick up topmost element of stack and repeat
+	s.pop();	//remove element afterwards
 	
 	}
 	
