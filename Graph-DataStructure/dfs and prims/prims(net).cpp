@@ -42,7 +42,7 @@ int prims()
 	int u,v,min_distance,distance[MAX],from[MAX];
 	int visited[MAX],no_of_edges,i,min_cost,j;
 	
-	//create cost[][] matrix,spanning[][]
+	
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 		{
@@ -79,15 +79,13 @@ int prims()
 			}
 			
 		u=from[v];
-		//cout<<"   "<<u;
-		//cout<<distance[v];
+
 		//insert the edge in spanning tree
 		spanning[u][v]=distance[v];
 		spanning[v][u]=distance[v];
 		no_of_edges--;
 		visited[v]=1;
-		//cout<<spanning[v][u];
-		//cout<<v;
+		
 		//updated the distance[] array
 		for(i=1;i<n;i++)
 			if(visited[i]==0&&cost[i][v]<distance[i])
