@@ -1,61 +1,39 @@
-/* This program is based on Bubble sort Sorting algorithm
+/* This program is based on Bubble sort Sorting algorithm where size and elements of array are  entered by user
 time complexity O(n^2)
 space Complexity O(1)
 */
-
-#include <iostream>
-#include <cstdlib>
+#include<iostream>
+#include<conio.h>
 using namespace std;
+int main()
+{
+    int i,j,n,temp,arr[5];
+    cout<<"size of an array:";
+    cin>>n;
+    cout<<"enter the elements of the array";
+    for(i=0;i<n;i++)
+        cin>>arr[i];
+        cout<<" ";
+    for(i=0;i<n;i++)
+        cout<<arr[i]<<" ";
+    cout<<" sorting an array using bubble sort:";
+    for(i=0;i<n;i++)
+    {
+    for(j=0;j<n-i-1;j++)
+      {
 
-// bubble sort algorithm
-void bubbleSort(int arr[], int n) {
+        if(arr[j]>arr[j+1])
+          {
 
-    for(int i = 0; i < n - 1; i++) {
+           temp=arr[j];
+           arr[j]=arr[j+1];
+           arr[j+1]=temp;
 
-        for(int j = 0; j < n - 1 - i; j++) {
-
-            if(arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
+          }
+      }
     }
-}
-
-
-/* better bubble sort where it can be optimized by stopping the
-    algorithm if inner loop did not cause any swap. */
-
-void betterBubbleSort(int arr[], int n) {
-    bool swapped;
-    for(int i = 0; i < n - 1; i++) {
-        swapped = false;
-        for(int j = 0; j < n - 1 - i; j++) {
-
-            if(arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = true;
-            }
-        }
-        if(swapped == false) {
-            break;
-        }
-    }
-}
-
-
-int main() {
-
-    int arr[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    betterBubbleSort(arr, n);
-    cout<<"Sorted Array is: ";
-    for(int i = 0; i < n; i++) {
-        cout<<arr[i]<<"  ";
-    }
-    cout<<endl;
+    cout<<" sorted array:";
+    for(j=0;j<n;j++)
+    cout<<arr[j]<<" ";
     return 0;
 }
