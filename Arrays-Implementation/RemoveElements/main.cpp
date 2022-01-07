@@ -16,8 +16,11 @@ void removeElements(vector<int>&v, int num) {
 int main() {
     vector<int>vect;
     int ele, num;
+    int l;
+    cout<<"enter the length of array"<<endl;
+    cin>>l;
     cout<<"Enter elements: "<<endl;
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < l; i++) {
         cin>>ele;
         vect.push_back(ele);
     }
