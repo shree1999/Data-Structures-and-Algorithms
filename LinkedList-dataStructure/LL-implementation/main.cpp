@@ -191,6 +191,43 @@ public:
         }
         cout << endl;
     }
+
+    int get(int index)
+    {
+        if (index < 0 || index >= this->totalNodes)
+        {
+            cout << "[WARNING] Index out of bounds!" << endl;
+            return -1;
+        }
+
+        Node *curr = this->head;
+        for (int i = 0; i < index; i++)
+        {
+            curr = curr->link;
+        }
+
+        return curr->data;
+    }
+
+    int find(int data)
+    {
+        Node *curr = this->head;
+        for (int i = 0; i < this->totalNodes; i++)
+        {
+            if (curr->data == data)
+            {
+                return i;
+            } else if(curr->link == NULL)
+            {
+                break;
+            }
+
+            curr = curr->link;
+        }
+
+        cout << "Could not find the node" << endl;
+        return -1;
+    }
 };
 
 int main()
@@ -220,6 +257,12 @@ int main()
     l.removeNode(5);
 
     l.display();
+
+    cout << "Get Node: 2" << endl;
+    cout << l.get(2) << endl;
+
+    cout << "Find Node 8:" << endl;
+    cout << l.find(8) << endl;
 
     return 0;
 }
