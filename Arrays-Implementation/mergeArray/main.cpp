@@ -1,7 +1,8 @@
 #include<iostream>
 #include<cstdlib>
+#include <bits/stdc++.h>
 using namespace std;
-// we are creating function pointer that points to the array that we will be returned.
+// Approach 1: we are creating function pointer that points to the array that we will be returned.
 int *mergeArray(int *arr1, int *arr2, int size1, int size2) {
     if(size1 == 0) {
         return arr2;
@@ -49,4 +50,40 @@ int main() {
     }
     cout<<endl;
     return 0;
+}
+
+
+// Approach 2: Using Vector and avoiding 3rd variable
+
+void mergeArrays(vector<int> array1, vector<int> array2) {
+  vector<int> mergedArray;
+  int i = 0, j = 0;
+  while (i < array1.size() && j < array2.size()) {
+    if (array1[i] <= array2[j]) {
+      mergedArray.push_back(array1[i]);
+      i++;
+    } else {
+      mergedArray.push_back(array2[j]);
+      j++;
+    }
+  }
+  while (i < array1.size()) {
+    mergedArray.push_back(array1[i]);
+    i++;
+  }
+  while (j < array2.size()) {
+    mergedArray.push_back(array2[j]);
+    j++;
+  }
+  cout << "Merged array" << endl;
+  for (auto iterator : mergedArray) {
+    cout << iterator<<" ";
+  }
+}
+
+int main() {
+  vector<int> arr1{1,3};
+  vector<int> arr2{5,23,32};
+  mergeArrays(arr1, arr2);
+  return 0;
 }
