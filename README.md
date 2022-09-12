@@ -47,4 +47,4 @@ Don't know where to start? Right here is perfect! We will walk you through exact
 6. Click clone and get started!
 
 ## Contributions
-* This repository is open for contributions feel free to check the CONTRIBUTIONS.md file for details on how to add anything I missed
+* This repository is open for contributions feel free to check the CONTRIBUTING.md file for details on how to add anything I missed
