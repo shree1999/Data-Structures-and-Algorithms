@@ -194,12 +194,14 @@ public:
 
     int get(int index)
     {
+        // Check whether node with this index exists
         if (index < 0 || index >= this->totalNodes)
         {
             cout << "[WARNING] Index out of bounds!" << endl;
             return -1;
         }
 
+        // Iterate over nodes until we reach the index-th node
         Node *curr = this->head;
         for (int i = 0; i < index; i++)
         {
@@ -211,9 +213,12 @@ public:
 
     int find(int data)
     {
+        // Iterate through all nodes
+        // In the worst case we don't find the node and reach the end of the list
         Node *curr = this->head;
         for (int i = 0; i < this->totalNodes; i++)
         {
+            // Check whether we found the data, if so return the index at which it lies
             if (curr->data == data)
             {
                 return i;
@@ -224,7 +229,8 @@ public:
 
             curr = curr->link;
         }
-
+        
+        // This means the loop terminated without finding the data
         cout << "Could not find the node" << endl;
         return -1;
     }
