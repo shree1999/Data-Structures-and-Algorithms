@@ -8,7 +8,7 @@ Hi there! Welcome to the Data Structures and Algorithms Project created by shree
 1. Please fork the project into your own repository.
 2. Make a clean branch to work off of
      - Be specific when naming your branch
-3. Thoroughly terst and validate your additions before making a pull request
+3. Thoroughly test and validate your additions before making a pull request
      - Make sure to test all edge cases BEFORE making a pull request.
      - Include comments in your code so everyone can follow along and read the code easily.
 4. Create a new pull request
