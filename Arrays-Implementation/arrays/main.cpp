@@ -83,7 +83,7 @@ public:
 
     int get(int index) {
         // get the data of the particular index.
-        if(index > -1 && index < capacity) {
+        if(index > -1 && index < totalNumbers) {
             return arr[index];
         }
     }
